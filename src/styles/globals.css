@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-reference: #7f1d1d;
+  --color-reference-foreground: #fef2f2;
+  --color-reference-soft: #fee2e2;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --border: #e2e8f0;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --primary: #1e293b;
+  --primary-foreground: #f8fafc;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --ring: #94a3b8;
+
+  --status-same: #16a34a;
+  --status-modified: #d97706;
+  --status-missing: #dc2626;
+  --status-new: #2563eb;
+  --status-renamed: #7c3aed;
+  --status-uncertain: #ca8a04;
+  --status-unsupported: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #0b1220;
+    --foreground: #e2e8f0;
+    --card: #111827;
+    --card-foreground: #e2e8f0;
+    --border: #1f2937;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --primary: #e2e8f0;
+    --primary-foreground: #0f172a;
+    --accent: #1e293b;
+    --accent-foreground: #e2e8f0;
+    --ring: #475569;
+
+    --color-reference: #b91c1c;
+    --color-reference-soft: #3f1212;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --card: #111827;
+  --card-foreground: #e2e8f0;
+  --border: #1f2937;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --primary: #e2e8f0;
+  --primary-foreground: #0f172a;
+  --accent: #1e293b;
+  --accent-foreground: #e2e8f0;
+  --ring: #475569;
+
+  --color-reference: #b91c1c;
+  --color-reference-soft: #3f1212;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+.diff-add {
+  background: color-mix(in srgb, var(--status-same) 16%, transparent);
+}
+.diff-remove {
+  background: color-mix(in srgb, var(--status-missing) 16%, transparent);
+}
+.diff-change {
+  background: color-mix(in srgb, var(--status-modified) 18%, transparent);
+}
+
+mark.search-hit {
+  background: #fde047;
+  color: #1e293b;
+  border-radius: 2px;
+}
